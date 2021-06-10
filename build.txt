@@ -1,0 +1,3 @@
+displayName = Templar's Fantastic Bows
+author = Dan Squire
+version = 0.1
