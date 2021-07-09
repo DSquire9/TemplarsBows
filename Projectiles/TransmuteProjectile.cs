@@ -12,6 +12,7 @@ namespace TemplarsBows.Projectiles
 {
     class TransmuteProjectile : GlobalProjectile
     {
+        Random rng = new Random();
         public override bool InstancePerEntity
         {
             get
@@ -27,7 +28,10 @@ namespace TemplarsBows.Projectiles
             // Gives projectiles fired by the Rain of Thorns a 25% chance to poison
             if (player.inventory[player.selectedItem].type == mod.ItemType("Thorns"))
             {
-                target.AddBuff(BuffID.Poisoned, 240);
+                if (rng.Next(4) == 3)
+                {
+                    target.AddBuff(BuffID.Poisoned, 240);
+                }
             }
         }
     }
