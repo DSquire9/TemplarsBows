@@ -51,21 +51,8 @@ namespace TemplarsBows.Items
 			recipe.AddRecipe();
 		}
 
-        // Gives projectiles fired by the bow a 25% chance to poison
-        public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
-        {
-			target.AddBuff(BuffID.Poisoned,240);
-            base.ModifyHitNPC(player, target, ref damage, ref knockBack, ref crit);
-        }
-        public override void ModifyHitPvp(Player player, Player target, ref int damage, ref bool crit)
-        {
-			target.AddBuff(BuffID.Poisoned, 240);
-            base.ModifyHitPvp(player, target, ref damage, ref crit);
-        }
-
-
-        // Used to ensure bow looks natural to hold
-        public override Vector2? HoldoutOffset()
+		// Used to ensure bow looks natural to hold
+		public override Vector2? HoldoutOffset()
 		{
 			return new Vector2(-3.5f, 0);
 		}
