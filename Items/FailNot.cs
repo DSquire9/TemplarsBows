@@ -23,7 +23,7 @@ namespace TemplarsBows.Items
 
 		public override void SetDefaults()
 		{
-			item.damage = 42;
+			item.damage = 35;
 			item.ranged = true;
 			item.useAmmo = AmmoID.Arrow;
 			item.shootSpeed = 7f;
