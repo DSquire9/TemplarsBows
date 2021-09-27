@@ -72,6 +72,7 @@ namespace TemplarsBows.Items
 		// Used to turn wooden arrows int jesters arrows
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
+			// If the arrow that would be fired is a wooden arrow, make it a Jester's Arrow Instead
 			if (type == ProjectileID.WoodenArrowFriendly)
 			{
 				type = ProjectileID.JestersArrow;
