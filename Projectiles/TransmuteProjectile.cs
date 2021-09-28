@@ -44,7 +44,6 @@ namespace TemplarsBows.Projectiles
                 // Lower the projectile penetrations to 3 to reduce unfair interactions
                 projectile.maxPenetrate = 5; // 5 max hits
 
-                // Loop written by Sin Costan (https://forums.terraria.org/index.php?threads/tutorial-projectile-guide-and-implementation-tmodloader-edition.40062/)
                 for (int i = 0; i < 200; i++)
                 {
                     NPC target = Main.npc[i];
@@ -59,12 +58,12 @@ namespace TemplarsBows.Projectiles
                         //If the distance between the live targeted npc and the projectile is less than 480 pixels
                         if (distance < 480f && !target.friendly && target.active)
                         {
-                            //Divide the factor, 4f, which is the desired velocity
-                            distance = 4f / distance;
+                            //Divide the factor, 3f, which is the desired velocity
+                            distance = 3f / distance;
 
-                            //Multiply the distance by a multiplier if you wish the projectile to have go faster
-                            shootToX *= distance * 5;
-                            shootToY *= distance * 5;
+                            //Multiply the distance by a multiplier to increase projectile speed
+                            shootToX *= distance * 3;
+                            shootToY *= distance * 3;
 
                             //Set the velocities to the shoot values
                             projectile.velocity.X = shootToX;
