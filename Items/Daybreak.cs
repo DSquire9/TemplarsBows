@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace TemplarsBows.Items
 {
-    class BowOfNight : ModItem
+    class Daybreak : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -19,15 +19,29 @@ namespace TemplarsBows.Items
 
         public override void SetDefaults()
         {
-            ModRecipe recipeCrim = new ModRecipe(mod);
-            ModRecipe recipeShad = new ModRecipe(mod);
-
-
+            
         }
 
         public override void AddRecipes()
         {
-            
+            ModRecipe recipeCrim = new ModRecipe(mod);
+            ModRecipe recipeShad = new ModRecipe(mod);
+
+            recipeCrim.AddIngredient(mod.GetItem("Thorns"), 1);
+            recipeShad.AddIngredient(mod.GetItem("Thorns"), 1);
+
+            // Dungeon Sword Equiv
+            //recipeCrim.AddIngredient();
+            //recipeShad.AddIngredient();
+
+            recipeCrim.AddIngredient(ItemID.MoltenFury, 1);
+            recipeShad.AddIngredient(ItemID.MoltenFury, 1);
+
+            recipeCrim.AddIngredient(ItemID.TendonBow, 1);
+            recipeShad.AddIngredient(ItemID.DemonBow, 1);
+
+            recipeCrim.AddTile(TileID.DemonAltar);
+            recipeShad.AddTile(TileID.DemonAltar);
         }
 
         // Used to ensure bow looks natural to hold
