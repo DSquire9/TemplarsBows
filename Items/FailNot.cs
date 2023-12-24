@@ -17,39 +17,38 @@ namespace TemplarsBows.Items
 		/// </summary>
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fail-not"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-			Tooltip.SetDefault("Arrows home on the nearest enemy");
+			// DisplayName.SetDefault("Fail-not"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			// Tooltip.SetDefault("Arrows home on the nearest enemy");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 35;
-			item.ranged = true;
-			item.useAmmo = AmmoID.Arrow;
-			item.shootSpeed = 7f;
-			item.noMelee = true;
-			item.width = 40;
-			item.height = 40;
-			item.scale = .85f;
-			item.useTime = 20;
-			item.useAnimation = 20;
-			item.useStyle = ItemUseStyleID.HoldingOut;
-			item.knockBack = 1;
-			item.crit = 4;
-			item.value = 10000;
-			item.rare = ItemRarityID.Pink;
-			item.UseSound = SoundID.Item5;
-			item.autoReuse = true;
-			item.shoot = ProjectileID.WoodenArrowFriendly;
+			Item.damage = 35;
+			Item.DamageType = DamageClass.Ranged;
+			Item.useAmmo = AmmoID.Arrow;
+			Item.shootSpeed = 7f;
+			Item.noMelee = true;
+			Item.width = 40;
+			Item.height = 40;
+			Item.scale = .85f;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.knockBack = 1;
+			Item.crit = 4;
+			Item.value = 10000;
+			Item.rare = ItemRarityID.Pink;
+			Item.UseSound = SoundID.Item5;
+			Item.autoReuse = true;
+			Item.shoot = ProjectileID.WoodenArrowFriendly;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.HallowedBar, 10);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 
 		// Used to ensure bow looks natural to hold

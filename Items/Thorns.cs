@@ -14,41 +14,40 @@ namespace TemplarsBows.Items
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rain of Thorns"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-            Tooltip.SetDefault("Has a chance to poison enemies");
+            // DisplayName.SetDefault("Rain of Thorns"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+            // Tooltip.SetDefault("Has a chance to poison enemies");
         }
 
 		public override void SetDefaults()
 		{
-			item.damage = 26;
-			item.ranged = true;
-			item.useAmmo = AmmoID.Arrow;
-			item.shootSpeed = 7f;
-			item.noMelee = true;
-			item.width = 40;
-			item.height = 40;
-			item.scale = .85f;
-			item.useTime = 22;
-			item.useAnimation = 22;
-			item.useStyle = ItemUseStyleID.HoldingOut;
-			item.knockBack = 1;
-			item.crit = 4;
-			item.value = 10000;
-			item.rare = ItemRarityID.Blue;
-			item.UseSound = SoundID.Item5;
-			item.autoReuse = false;
-			item.shoot = ProjectileID.WoodenArrowFriendly;
+			Item.damage = 26;
+			Item.DamageType = DamageClass.Ranged;
+			Item.useAmmo = AmmoID.Arrow;
+			Item.shootSpeed = 7f;
+			Item.noMelee = true;
+			Item.width = 40;
+			Item.height = 40;
+			Item.scale = .85f;
+			Item.useTime = 22;
+			Item.useAnimation = 22;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.knockBack = 1;
+			Item.crit = 4;
+			Item.value = 10000;
+			Item.rare = ItemRarityID.Blue;
+			Item.UseSound = SoundID.Item5;
+			Item.autoReuse = false;
+			Item.shoot = ProjectileID.WoodenArrowFriendly;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.JungleSpores, 12);
 			recipe.AddIngredient(ItemID.Stinger, 10);
 			recipe.AddIngredient(ItemID.Vine, 3);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 
 		// Used to ensure bow looks natural to hold

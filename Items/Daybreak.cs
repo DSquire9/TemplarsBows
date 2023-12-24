@@ -14,7 +14,7 @@ namespace TemplarsBows.Items
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("TODO");
+            // Tooltip.SetDefault("TODO");
         }
 
         public override void SetDefaults()
@@ -24,11 +24,11 @@ namespace TemplarsBows.Items
 
         public override void AddRecipes()
         {
-            ModRecipe recipeCrim = new ModRecipe(mod);
-            ModRecipe recipeShad = new ModRecipe(mod);
+            Recipe recipeCrim = CreateRecipe();
+            Recipe recipeShad = CreateRecipe();
 
-            recipeCrim.AddIngredient(mod.GetItem("Thorns"), 1);
-            recipeShad.AddIngredient(mod.GetItem("Thorns"), 1);
+            recipeCrim.AddIngredient<Thorns>(1);
+            recipeShad.AddIngredient<Thorns>(1);
 
             // Dungeon Sword Equiv
             //recipeCrim.AddIngredient();

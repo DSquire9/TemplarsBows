@@ -21,12 +21,12 @@ namespace TemplarsBows.Projectiles
             }
         }
 
-        public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.player[projectile.owner];
 
             // Gives projectiles fired by the Rain of Thorns a 25% chance to poison
-            if (player.inventory[player.selectedItem].type == mod.ItemType("Thorns"))
+            if (player.inventory[player.selectedItem].type == Mod.Find<ModItem>("Thorns").Type)
             {
                 if (rng.Next(4) == 3)
                 {
@@ -39,7 +39,7 @@ namespace TemplarsBows.Projectiles
         {
             base.AI(projectile);
             Player player = Main.player[projectile.owner];
-            if (player.inventory[player.selectedItem].type == mod.ItemType("FailNot"))
+            if (player.inventory[player.selectedItem].type == Mod.Find<ModItem>("FailNot").Type)
             {
                 // Lower the projectile penetrations to 3 to reduce unfair interactions
                 projectile.maxPenetrate = 5; // 5 max hits
