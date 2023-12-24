@@ -1,1 +1,21 @@
-# This file will automatically update with entries for new content after a build and reload
+Items: {
+	Daybreak: {
+		DisplayName: Daybreak
+		Tooltip: ""
+	}
+
+	EBow: {
+		DisplayName: E Bow
+		Tooltip: ""
+	}
+
+	FailNot: {
+		DisplayName: Fail Not
+		Tooltip: ""
+	}
+
+	Thorns: {
+		DisplayName: Thorns
+		Tooltip: ""
+	}
+}
