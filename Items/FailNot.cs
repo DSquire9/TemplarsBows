@@ -15,11 +15,6 @@ namespace TemplarsBows.Items
 		/// <summary>
 		/// This bow is made to be an equivilent to Excalibur. It's name comes from Arthurian Legend and the archer Tristan.
 		/// </summary>
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Fail-not"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-			// Tooltip.SetDefault("Arrows home on the nearest enemy");
-		}
 
 		public override void SetDefaults()
 		{

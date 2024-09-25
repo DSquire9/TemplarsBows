@@ -12,11 +12,6 @@ namespace TemplarsBows.Items
 {
     class Daybreak : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("TODO");
-        }
-
         public override void SetDefaults()
         {
             
@@ -27,18 +22,17 @@ namespace TemplarsBows.Items
             Recipe recipeCrim = CreateRecipe();
             Recipe recipeShad = CreateRecipe();
 
-            recipeCrim.AddIngredient<Thorns>(1);
-            recipeShad.AddIngredient<Thorns>(1);
+            recipeCrim.AddIngredient<Thorns>();
+            recipeShad.AddIngredient<Thorns>();
 
-            // Dungeon Sword Equiv
-            //recipeCrim.AddIngredient();
-            //recipeShad.AddIngredient();
+            recipeCrim.AddIngredient<Yumi>();
+            recipeShad.AddIngredient<Yumi>();
 
-            recipeCrim.AddIngredient(ItemID.MoltenFury, 1);
-            recipeShad.AddIngredient(ItemID.MoltenFury, 1);
+            recipeCrim.AddIngredient(ItemID.MoltenFury);
+            recipeShad.AddIngredient(ItemID.MoltenFury);
 
-            recipeCrim.AddIngredient(ItemID.TendonBow, 1);
-            recipeShad.AddIngredient(ItemID.DemonBow, 1);
+            recipeCrim.AddIngredient(ItemID.TendonBow);
+            recipeShad.AddIngredient(ItemID.DemonBow);
 
             recipeCrim.AddTile(TileID.DemonAltar);
             recipeShad.AddTile(TileID.DemonAltar);

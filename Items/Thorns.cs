@@ -12,12 +12,6 @@ namespace TemplarsBows.Items
 {
     class Thorns : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Rain of Thorns"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-            // Tooltip.SetDefault("Has a chance to poison enemies");
-        }
-
 		public override void SetDefaults()
 		{
 			Item.damage = 26;

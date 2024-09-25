@@ -18,4 +18,9 @@ Items: {
 		DisplayName: Rain of Thorns
 		Tooltip: Has a chance to poison enemies
 	}
+
+	Yumi: {
+		Tooltip: ""
+		DisplayName: Yumi
+	}
 }
