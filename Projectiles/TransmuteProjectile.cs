@@ -53,7 +53,7 @@ namespace TemplarsBows.Projectiles
                         //Get the shoot trajectory from the projectile and target
                         float shootToX = target.position.X + (float)target.width * 0.5f - projectile.Center.X;
                         float shootToY = target.position.Y - projectile.Center.Y;
-                        float distance = (float)System.Math.Sqrt((double)(shootToX * shootToX + shootToY * shootToY));
+                        float distance = (float)Math.Sqrt((double)(shootToX * shootToX + shootToY * shootToY));
 
                         //If the distance between the live targeted npc and the projectile is less than 480 pixels
                         if (distance < 480f && !target.friendly && target.active)

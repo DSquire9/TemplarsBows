@@ -5,17 +5,17 @@ Items: {
 	}
 
 	EBow: {
-		DisplayName: E Bow
-		Tooltip: ""
+		DisplayName: Enchanted Bow
+		Tooltip: Turns wooden arrows into jesters arrows
 	}
 
 	FailNot: {
-		DisplayName: Fail Not
-		Tooltip: ""
+		DisplayName: Fail-not
+		Tooltip: Arrows home on the nearest enemy
 	}
 
 	Thorns: {
-		DisplayName: Thorns
-		Tooltip: ""
+		DisplayName: Rain of Thorns
+		Tooltip: Has a chance to poison enemies
 	}
 }
