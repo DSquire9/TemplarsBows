@@ -31,6 +31,50 @@ namespace TemplarsBows.Projectiles
             {
                 target.AddBuff(BuffID.Poisoned, 240);
             }
+            #region YumiProjectiles
+            if (player.inventory[player.selectedItem].type == ModContent.ItemType<Yumi>())
+            {
+                
+                if (Main.myPlayer == projectile.owner && projectile.type != ProjectileID.Muramasa)
+                {
+                    Vector2 vel1 = Vector2.Normalize(new Vector2(rng.Next(360), rng.Next(360)));
+                    Vector2 vel2 = new Vector2(vel1.Y * -1, vel1.X);
+                    Vector2 vel3 = new Vector2(vel2.Y * -1, vel2.X);
+                    Vector2 vel4 = new Vector2(vel3.Y * -1, vel3.X);
+
+                    int proj1 = Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, vel1 * 2, ProjectileID.Muramasa, 6, 0, projectile.owner);
+                    int proj2 = Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, vel2 * 2, ProjectileID.Muramasa, 6, 0, projectile.owner);
+                    int proj3 = Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, vel3 * 2, ProjectileID.Muramasa, 6, 0, projectile.owner);
+                    int proj4 = Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, vel4 * 2, ProjectileID.Muramasa, 6, 0, projectile.owner);
+
+                    Main.projectile[proj1].aiStyle = ProjectileID.Muramasa;
+                    Main.projectile[proj2].aiStyle = ProjectileID.Muramasa;
+                    Main.projectile[proj3].aiStyle = ProjectileID.Muramasa;
+                    Main.projectile[proj4].aiStyle = ProjectileID.Muramasa;
+
+                    Main.projectile[proj1].timeLeft = 45;
+                    Main.projectile[proj2].timeLeft = 45;
+                    Main.projectile[proj3].timeLeft = 45;
+                    Main.projectile[proj4].timeLeft = 45;
+
+                    Main.projectile[proj1].stopsDealingDamageAfterPenetrateHits = true;
+                    Main.projectile[proj2].stopsDealingDamageAfterPenetrateHits = true;
+                    Main.projectile[proj3].stopsDealingDamageAfterPenetrateHits = true;
+                    Main.projectile[proj4].stopsDealingDamageAfterPenetrateHits = true;
+                    
+                    Main.projectile[proj1].penetrate = -1;
+                    Main.projectile[proj2].penetrate = -1;
+                    Main.projectile[proj3].penetrate = -1;
+                    Main.projectile[proj4].penetrate = -1;
+
+                    Main.projectile[proj1].rotation = (float)Math.Atan2(vel1.X,vel1.Y);
+                    Main.projectile[proj2].rotation = (float)Math.Atan2(vel2.X, vel2.Y);
+                    Main.projectile[proj3].rotation = (float)Math.Atan2(vel3.X, vel3.Y);
+                    Main.projectile[proj4].rotation = (float)Math.Atan2(vel4.X, vel4.Y);
+                }
+                
+            }
+            #endregion
         }
 
         public override void AI(Projectile projectile)

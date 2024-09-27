@@ -35,6 +35,7 @@ namespace TemplarsBows.Items
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = false;
+            Item.shoot = ProjectileID.WoodenArrowFriendly;
         }
 
         public override Vector2? HoldoutOffset()

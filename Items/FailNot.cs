@@ -35,8 +35,8 @@ namespace TemplarsBows.Items
 			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
-			Item.shoot = ProjectileID.WoodenArrowFriendly;
-		}
+            Item.shoot = ProjectileID.WoodenArrowFriendly;
+        }
 
 		public override void AddRecipes()
 		{
