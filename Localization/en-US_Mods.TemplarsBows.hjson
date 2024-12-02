@@ -10,7 +10,7 @@ Items: {
 	}
 
 	FailNot: {
-		DisplayName: Fail-not
+		DisplayName: Fail-Not
 		Tooltip: Arrows home on the nearest enemy
 	}
 
@@ -20,13 +20,13 @@ Items: {
 	}
 
 	Yumi: {
-		Tooltip: ""
 		DisplayName: Yumi
+		Tooltip: ""
 	}
 
 	TrueDaybreak: {
-		Tooltip: ""
 		DisplayName: True Daybreak
+		Tooltip: ""
 	}
 
 	JackOBow: {
@@ -35,7 +35,17 @@ Items: {
 	}
 
 	TrueFailNot: {
-		DisplayName: True Fail Not
+		DisplayName: True Fail-Not
+		Tooltip: ""
+	}
+
+	Orion: {
+		DisplayName: Orion
+		Tooltip: ""
+	}
+
+	UltimaBow: {
+		DisplayName: Ultima Bow
 		Tooltip: ""
 	}
 }
