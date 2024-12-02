@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TemplarsBows.Items;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TemplarsBows.Items
+namespace TemplarsBows.Common.GlobalItems
 {
     public class TBowsGlobalItemLoot : GlobalItem
     {

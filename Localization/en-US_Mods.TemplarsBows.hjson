@@ -30,7 +30,7 @@ Items: {
 	}
 
 	JackOBow: {
-		DisplayName: Jack O Bow
+		DisplayName: Jack 'O Bow
 		Tooltip: ""
 	}
 
@@ -46,6 +46,11 @@ Items: {
 
 	UltimaBow: {
 		DisplayName: Ultima Bow
+		Tooltip: ""
+	}
+
+	ForgottenShaft: {
+		DisplayName: Forgotten Shaft
 		Tooltip: ""
 	}
 }
