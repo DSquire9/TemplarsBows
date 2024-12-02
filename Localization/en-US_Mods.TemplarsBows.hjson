@@ -23,4 +23,19 @@ Items: {
 		Tooltip: ""
 		DisplayName: Yumi
 	}
+
+	TrueDaybreak: {
+		Tooltip: ""
+		DisplayName: True Daybreak
+	}
+
+	JackOBow: {
+		DisplayName: Jack O Bow
+		Tooltip: ""
+	}
+
+	TrueFailNot: {
+		DisplayName: True Fail Not
+		Tooltip: ""
+	}
 }

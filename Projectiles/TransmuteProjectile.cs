@@ -90,7 +90,7 @@ namespace TemplarsBows.Projectiles
                 {
                     NPC target = Main.npc[i];
                     //If the npc is hostile
-                    if (!target.friendly)
+                    if (!target.friendly && !target.CountsAsACritter)
                     {
                         //Get the shoot trajectory from the projectile and target
                         float shootToX = target.position.X + (float)target.width * 0.5f - projectile.Center.X;
