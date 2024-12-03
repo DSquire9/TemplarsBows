@@ -186,6 +186,7 @@ namespace TemplarsBows.Projectiles
         public override void AI(Projectile projectile)
         {
             base.AI(projectile);
+            // Ensure the player fired the projectile and that the server does not own it in multiplayer
             if(projectile.owner == Main.myPlayer && projectile.owner != 255 && IsPlayerFiredProjectile(projectile, Main.LocalPlayer))
             {
                 Player player = Main.player[projectile.owner];
@@ -194,17 +195,13 @@ namespace TemplarsBows.Projectiles
                     (player.inventory[player.selectedItem].type == ModContent.ItemType<FailNot>() ||
                     player.inventory[player.selectedItem].type == ModContent.ItemType<TrueFailNot>() ||
                     player.inventory[player.selectedItem].type == ModContent.ItemType<Orion>()) &&
-                    projectile.aiStyle == 1
-                    && player.active && player != null
+                    projectile.aiStyle == 1 // Ensures the projectile is an arrow
+                    && player.active 
                    )
                 {
-
-                    if (projectile.owner == Main.myPlayer)
-                    {
-                        Main.NewText($"Projectile fired by local player: {projectile.owner}, {projectile.type}", 255, 255, 0);
-                    }
                     projectile.maxPenetrate = 3; // 3 max hits
 
+                    //Redo this homing code to target the closest enemy to the projectile instead of first in the list
                     for (int i = 0; i < 200; i++)
                     {
                         NPC target = Main.npc[i];
