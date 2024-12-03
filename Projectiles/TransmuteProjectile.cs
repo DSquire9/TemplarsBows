@@ -136,7 +136,7 @@ namespace TemplarsBows.Projectiles
             }
             #endregion
             #region TrueDaybreakProjectiles
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<Daybreak>())
+            if (player.inventory[player.selectedItem].type == ModContent.ItemType<Daybreak>() || player.inventory[player.selectedItem].type == ModContent.ItemType<Orion>())
             {
                 // Status
                 target.AddBuff(effects[rng.Next(6)], 600);
@@ -186,42 +186,81 @@ namespace TemplarsBows.Projectiles
         public override void AI(Projectile projectile)
         {
             base.AI(projectile);
-            Player player = Main.player[projectile.owner];
-            #region Homing
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<FailNot>() || player.inventory[player.selectedItem].type == ModContent.ItemType<TrueFailNot>())
+            if(projectile.owner == Main.myPlayer && projectile.owner != 255 && IsPlayerFiredProjectile(projectile, Main.LocalPlayer))
             {
-                // Lower the projectile penetrations to 3 to reduce unfair interactions
-                projectile.maxPenetrate = 5; // 5 max hits
-
-                for (int i = 0; i < 200; i++)
+                Player player = Main.player[projectile.owner];
+                #region Homing
+                if (
+                    (player.inventory[player.selectedItem].type == ModContent.ItemType<FailNot>() ||
+                    player.inventory[player.selectedItem].type == ModContent.ItemType<TrueFailNot>() ||
+                    player.inventory[player.selectedItem].type == ModContent.ItemType<Orion>()) &&
+                    projectile.aiStyle == 1
+                    && player.active && player != null
+                   )
                 {
-                    NPC target = Main.npc[i];
-                    //If the npc is hostile
-                    if (!target.friendly && !target.CountsAsACritter)
+
+                    if (projectile.owner == Main.myPlayer)
                     {
-                        //Get the shoot trajectory from the projectile and target
-                        float shootToX = target.position.X + (float)target.width * 0.5f - projectile.Center.X;
-                        float shootToY = target.position.Y - projectile.Center.Y;
-                        float distance = (float)Math.Sqrt((double)(shootToX * shootToX + shootToY * shootToY));
+                        Main.NewText($"Projectile fired by local player: {projectile.owner}, {projectile.type}", 255, 255, 0);
+                    }
+                    projectile.maxPenetrate = 3; // 3 max hits
 
-                        //If the distance between the live targeted npc and the projectile is less than 480 pixels
-                        if (distance < 480f && !target.friendly && target.active)
+                    for (int i = 0; i < 200; i++)
+                    {
+                        NPC target = Main.npc[i];
+                        //If the npc is hostile
+                        if (!target.friendly && !target.CountsAsACritter)
                         {
-                            //Divide the factor, 3f, which is the desired velocity
-                            distance = 3f / distance;
+                            //Get the shoot trajectory from the projectile and target
+                            float shootToX = target.position.X + (float)target.width * 0.5f - projectile.Center.X;
+                            float shootToY = target.position.Y - projectile.Center.Y;
+                            float distance = (float)Math.Sqrt((double)(shootToX * shootToX + shootToY * shootToY));
 
-                            //Multiply the distance by a multiplier to increase projectile speed
-                            shootToX *= distance * 3;
-                            shootToY *= distance * 3;
+                            //If the distance between the live targeted npc and the projectile is less than 480 pixels
+                            if (distance < 480f && !target.friendly && target.active)
+                            {
+                                //Divide the factor, 3f, which is the desired velocity
+                                distance = 3f / distance;
 
-                            //Set the velocities to the shoot values
-                            projectile.velocity.X = shootToX;
-                            projectile.velocity.Y = shootToY;
+                                //Multiply the distance by a multiplier to increase projectile speed
+                                shootToX *= distance * 3;
+                                shootToY *= distance * 3;
+
+                                //Set the velocities to the shoot values
+                                projectile.velocity.X = shootToX;
+                                projectile.velocity.Y = shootToY;
+                            }
                         }
                     }
                 }
+                #endregion
             }
-            #endregion
+
+        }
+
+        private bool IsPlayerFiredProjectile(Projectile projectile, Player player)
+        {
+            // Check the player's held item and its associated projectile type
+            Item heldItem = player.HeldItem;
+            if (heldItem != null && heldItem.shoot == projectile.type)
+            {
+                return true; // The projectile matches the weapon's shot type
+            }
+
+            // Check if the projectile matches the ammo type
+            if (heldItem.useAmmo > 0)
+            {
+                for (int i = 0; i < player.inventory.Length; i++)
+                {
+                    Item ammo = player.inventory[i];
+                    if (ammo.ammo == heldItem.useAmmo && ammo.shoot == projectile.type)
+                    {
+                        return true; // The projectile matches the ammo's shot type
+                    }
+                }
+            }
+
+            return false; // Not a player-fired projectile
         }
     }
 }

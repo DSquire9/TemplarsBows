@@ -14,24 +14,16 @@ namespace TemplarsBows.Items
     {
         public override void SetDefaults()
         {
-            Item.damage = 26;
-            Item.DamageType = DamageClass.Ranged;
-            Item.useAmmo = AmmoID.Arrow;
-            Item.shootSpeed = 7f;
-            Item.noMelee = true;
-            Item.width = 40;
-            Item.height = 40;
-            Item.scale = .85f;
-            Item.useTime = 22;
-            Item.useAnimation = 22;
-            Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 1;
-            Item.crit = 4;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
-            Item.UseSound = SoundID.Item5;
-            Item.autoReuse = false;
-            Item.shoot = ProjectileID.WoodenArrowFriendly;
+
+            Item.DefaultToBow(19, 10.5f, true);
+            Item.rare = ItemRarityID.LightRed;
+            Item.damage = 48;
+            Item.knockBack = 3;
+            Item.crit = 6;
+            Item.useTime = Item.useAnimation / 2;
+            Item.consumeAmmoOnLastShotOnly = true;
+            Item.reuseDelay = 16;
+            Item.value = Item.buyPrice(gold: 2, silver: 80);
         }
 
         public override void AddRecipes()
