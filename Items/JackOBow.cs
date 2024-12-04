@@ -17,7 +17,7 @@ namespace TemplarsBows.Items
             Item.damage = 26;
             Item.DamageType = DamageClass.Ranged;
             Item.useAmmo = AmmoID.Arrow;
-            Item.shootSpeed = 7f;
+            Item.shootSpeed = 14f;
             Item.noMelee = true;
             Item.width = 40;
             Item.height = 40;
@@ -32,6 +32,14 @@ namespace TemplarsBows.Items
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = false;
             Item.shoot = ProjectileID.WoodenArrowFriendly;
+        }
+
+        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
+        {
+            if (type == ProjectileID.WoodenArrowFriendly)
+            {
+                type = ProjectileID.JackOLantern;
+            }
         }
 
         // Used to ensure bow looks natural to hold
