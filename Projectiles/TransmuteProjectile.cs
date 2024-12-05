@@ -86,8 +86,6 @@ namespace TemplarsBows.Projectiles
             {
                 // Status
                 target.AddBuff(effects[rng.Next(6)], 600);
-
-                // Impact Effect
             }
         }
 

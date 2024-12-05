@@ -13,18 +13,38 @@ namespace TemplarsBows.Items
 {
     internal class UltimaBow : ModItem
     {
+        Random rand = new Random();
+        private int[] arrows = { 
+            2,
+            4,
+            5,
+            6,
+            41,
+            46,
+            91,
+            103,
+            225,
+            278,
+            282,
+            312,
+            469,
+            495,
+            507,
+            636,
+            706
+        };
         public override void SetDefaults()
         {
             Item.damage = 26;
             Item.DamageType = DamageClass.Ranged;
             Item.useAmmo = AmmoID.Arrow;
-            Item.shootSpeed = 7f;
+            Item.shootSpeed = 21f;
             Item.noMelee = true;
             Item.width = 40;
             Item.height = 40;
             Item.scale = .85f;
-            Item.useTime = 22;
-            Item.useAnimation = 22;
+            Item.useTime = 15;
+            Item.useAnimation = 15;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 1;
             Item.crit = 4;
@@ -64,6 +84,7 @@ namespace TemplarsBows.Items
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
+            type = arrows[rand.Next(18)];
             int projectileId = Projectile.NewProjectile(source, position, velocity, type, damage, knockback);
 
             Projectile projectile = Main.projectile[projectileId];
