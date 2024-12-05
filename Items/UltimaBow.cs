@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -30,7 +31,7 @@ namespace TemplarsBows.Items
             Item.value = 10000;
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item5;
-            Item.autoReuse = false;
+            Item.autoReuse = true;
             Item.shoot = ProjectileID.WoodenArrowFriendly;
         }
 
@@ -59,6 +60,19 @@ namespace TemplarsBows.Items
         {
             // TODO : Change for non-placeholder art
             return new Vector2(-3.5f, 0);
+        }
+
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            int projectileId = Projectile.NewProjectile(source, position, velocity, type, damage, knockback);
+
+            Projectile projectile = Main.projectile[projectileId];
+
+            projectile.width = projectile.width * 3;
+            projectile.height = projectile.height * 2;
+            projectile.scale = projectile.scale * 3;
+
+            return false;
         }
     }
 }
