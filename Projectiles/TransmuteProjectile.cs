@@ -108,31 +108,28 @@ namespace TemplarsBows.Projectiles
                     projectile.maxPenetrate = 3; // 3 max hits
 
                     //Redo this homing code to target the closest enemy to the projectile instead of first in the list
-                    for (int i = 0; i < 200; i++)
+                    for (int i = 0; i < Main.npc.Length; i++)
                     {
                         NPC target = Main.npc[i];
+                        //Get the shoot trajectory from the projectile and target
+                        float shootToX = target.position.X + (float)target.width * 0.5f - projectile.Center.X;
+                        float shootToY = target.position.Y - projectile.Center.Y;
+                        float distance = (float)Math.Sqrt((double)(shootToX * shootToX + shootToY * shootToY));
+
                         //If the npc is hostile
-                        if (!target.friendly && !target.CountsAsACritter)
+                        if (!target.friendly && !target.CountsAsACritter && distance < 300f && target.active)
                         {
-                            //Get the shoot trajectory from the projectile and target
-                            float shootToX = target.position.X + (float)target.width * 0.5f - projectile.Center.X;
-                            float shootToY = target.position.Y - projectile.Center.Y;
-                            float distance = (float)Math.Sqrt((double)(shootToX * shootToX + shootToY * shootToY));
+                            //Divide the factor, 3f, which is the desired velocity
+                            distance = 3f / distance;
 
-                            //If the distance between the live targeted npc and the projectile is less than 480 pixels
-                            if (distance < 480f && !target.friendly && target.active)
-                            {
-                                //Divide the factor, 3f, which is the desired velocity
-                                distance = 3f / distance;
+                            //Multiply the distance by a multiplier to increase projectile speed
+                            shootToX *= distance * 3;
+                            shootToY *= distance * 3;
 
-                                //Multiply the distance by a multiplier to increase projectile speed
-                                shootToX *= distance * 3;
-                                shootToY *= distance * 3;
-
-                                //Set the velocities to the shoot values
-                                projectile.velocity.X = shootToX;
-                                projectile.velocity.Y = shootToY;
-                            }
+                            //Set the velocities to the shoot values
+                            projectile.velocity.X = shootToX;
+                            projectile.velocity.Y = shootToY;
+                            
                         }
                     }
                 }
