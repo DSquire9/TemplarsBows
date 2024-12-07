@@ -15,7 +15,7 @@ namespace TemplarsBows.Items
         public override void SetDefaults()
         {
             Item.DefaultToBow(19, 10.5f, true);
-            Item.rare = ItemRarityID.LightRed;
+            Item.rare = ItemRarityID.Yellow;
             Item.damage = 48;
             Item.knockBack = 3;
             Item.crit = 6;

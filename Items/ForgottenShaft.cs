@@ -15,6 +15,8 @@ namespace TemplarsBows.Items
         public override void SetStaticDefaults()
         {
             Item.ResearchUnlockCount = 1;
+            Item.maxStack = 9999;
+            Item.rare = ItemRarityID.Yellow;
         }
 
         public override void SetDefaults()

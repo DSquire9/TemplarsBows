@@ -18,7 +18,7 @@ namespace TemplarsBows.Items
         /// 
 
         public override void SetDefaults() {
-            Item.damage = 26;
+            Item.damage = 19;
             Item.DamageType = DamageClass.Ranged;
             Item.useAmmo = AmmoID.Arrow;
             Item.shootSpeed = 7f;
@@ -30,12 +30,13 @@ namespace TemplarsBows.Items
             Item.useAnimation = 22;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 1;
-            Item.crit = 4;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
+            Item.crit = 5;
+            Item.value = Item.buyPrice(gold: 1, silver: 75);
+            Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item5;
-            Item.autoReuse = false;
+            Item.autoReuse = true;
             Item.shoot = ProjectileID.WoodenArrowFriendly;
+            Item.material = true;
         }
 
         public override Vector2? HoldoutOffset()

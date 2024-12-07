@@ -1,7 +1,7 @@
 Items: {
 	Daybreak: {
 		DisplayName: Daybreak
-		Tooltip: ""
+		Tooltip: Chance to apply a random status
 	}
 
 	EBow: {
@@ -11,7 +11,7 @@ Items: {
 
 	FailNot: {
 		DisplayName: Fail-Not
-		Tooltip: Arrows home on the nearest enemy
+		Tooltip: Arrows home in on enemies
 	}
 
 	Thorns: {
@@ -26,27 +26,27 @@ Items: {
 
 	TrueDaybreak: {
 		DisplayName: True Daybreak
-		Tooltip: ""
+		Tooltip: Applies a random status
 	}
 
 	JackOBow: {
 		DisplayName: Jack 'O Bow
-		Tooltip: ""
+		Tooltip: Turns Wooden Arrows into Exploding Jack 'O Lanterns
 	}
 
 	TrueFailNot: {
 		DisplayName: True Fail-Not
-		Tooltip: ""
+		Tooltip: Arrows home in on enemies
 	}
 
 	Orion: {
 		DisplayName: Orion
-		Tooltip: ""
+		Tooltip: Arrows home in on enemies and apply a status
 	}
 
 	UltimaBow: {
 		DisplayName: Ultima Bow
-		Tooltip: ""
+		Tooltip: Have fun!
 	}
 
 	ForgottenShaft: {

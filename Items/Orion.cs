@@ -16,7 +16,7 @@ namespace TemplarsBows.Items
         {
 
             Item.DefaultToBow(19, 10.5f, true);
-            Item.rare = ItemRarityID.LightRed;
+            Item.rare = ItemRarityID.Yellow;
             Item.damage = 48;
             Item.knockBack = 3;
             Item.crit = 6;
@@ -32,7 +32,7 @@ namespace TemplarsBows.Items
 
             recipe.AddIngredient<TrueDaybreak>();
             recipe.AddIngredient<TrueFailNot>();
-            //recipe.AddIngredient<ForgottenShaft>();
+            recipe.AddIngredient<ForgottenShaft>();
 
             recipe.AddTile(TileID.MythrilAnvil);
 

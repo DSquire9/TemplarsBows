@@ -28,7 +28,7 @@ namespace TemplarsBows.Items
 			Item.knockBack = 1;
 			Item.crit = 5;
 			Item.value = 10000;
-			Item.rare = ItemRarityID.Blue;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
 			Item.shoot = ProjectileID.WoodenArrowFriendly;
