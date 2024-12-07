@@ -17,13 +17,13 @@ namespace TemplarsBows.Items
 
             Item.DefaultToBow(19, 10.5f, true);
             Item.rare = ItemRarityID.Yellow;
-            Item.damage = 48;
-            Item.knockBack = 3;
+            Item.damage = 66;
+            Item.knockBack = 2;
             Item.crit = 6;
             Item.useTime = Item.useAnimation / 2;
             Item.consumeAmmoOnLastShotOnly = true;
             Item.reuseDelay = 16;
-            Item.value = Item.buyPrice(gold: 2, silver: 80);
+            Item.value = Item.buyPrice(gold: 20);
         }
 
         public override void AddRecipes()
