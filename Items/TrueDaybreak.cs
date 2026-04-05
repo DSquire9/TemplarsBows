@@ -17,7 +17,7 @@ namespace TemplarsBows.Items
             Item.width = 40;
             Item.height = 40;
             Item.scale = .85f;
-            Item.useTime = 40;
+            Item.useTime = 22;
             Item.useAnimation = 22;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 2;
