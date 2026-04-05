@@ -171,25 +171,20 @@ namespace TemplarsBows.Projectiles
             int proj3 = Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, vel3 * 2, ProjectileID.Muramasa, 6, 0, projectile.owner);
             int proj4 = Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, vel4 * 2, ProjectileID.Muramasa, 6, 0, projectile.owner);
 
-            Main.projectile[proj1].aiStyle = ProjectileID.Muramasa;
-            Main.projectile[proj2].aiStyle = ProjectileID.Muramasa;
-            Main.projectile[proj3].aiStyle = ProjectileID.Muramasa;
-            Main.projectile[proj4].aiStyle = ProjectileID.Muramasa;
+            //Main.projectile[proj1].aiStyle = ProjAIStyleID.SuperStarBeam;
+            //Main.projectile[proj2].aiStyle = ProjAIStyleID.SuperStarBeam;
+            //Main.projectile[proj3].aiStyle = ProjAIStyleID.SuperStarBeam;
+            //Main.projectile[proj4].aiStyle = ProjAIStyleID.SuperStarBeam;
 
-            Main.projectile[proj1].timeLeft = 45;
-            Main.projectile[proj2].timeLeft = 45;
-            Main.projectile[proj3].timeLeft = 45;
-            Main.projectile[proj4].timeLeft = 45;
+            Main.projectile[proj1].timeLeft = 30;
+            Main.projectile[proj2].timeLeft = 30;
+            Main.projectile[proj3].timeLeft = 30;
+            Main.projectile[proj4].timeLeft = 30;
 
             Main.projectile[proj1].stopsDealingDamageAfterPenetrateHits = true;
             Main.projectile[proj2].stopsDealingDamageAfterPenetrateHits = true;
             Main.projectile[proj3].stopsDealingDamageAfterPenetrateHits = true;
             Main.projectile[proj4].stopsDealingDamageAfterPenetrateHits = true;
-
-            Main.projectile[proj1].penetrate = -1;
-            Main.projectile[proj2].penetrate = -1;
-            Main.projectile[proj3].penetrate = -1;
-            Main.projectile[proj4].penetrate = -1;
 
             Main.projectile[proj1].rotation = (float)Math.Atan2(vel1.X, vel1.Y);
             Main.projectile[proj2].rotation = (float)Math.Atan2(vel2.X, vel2.Y);
