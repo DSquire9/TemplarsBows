@@ -97,7 +97,7 @@ namespace TemplarsBows.Projectiles
                     (player.inventory[player.selectedItem].type == ModContent.ItemType<FailNot>() ||
                     player.inventory[player.selectedItem].type == ModContent.ItemType<TrueFailNot>() ||
                     player.inventory[player.selectedItem].type == ModContent.ItemType<Orion>()) &&
-                    projectile.aiStyle == 1 // Ensures the projectile is an arrow
+                    projectile.aiStyle == ProjAIStyleID.Arrow // Ensures the projectile is an arrow
                     && player.active 
                    )
                 {
