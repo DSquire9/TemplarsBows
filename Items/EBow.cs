@@ -30,11 +30,17 @@ namespace TemplarsBows.Items
 
 		public override void AddRecipes(){
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.ManaCrystal, 5);
-			recipe.AddIngredient(ItemID.WoodenBow, 1);
+			recipe.AddIngredient(ItemID.ManaCrystal, 8);
+			recipe.AddIngredient(ItemID.IronBow, 1);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
-		}
+
+            Recipe recipeAlt = CreateRecipe();
+            recipeAlt.AddIngredient(ItemID.ManaCrystal, 8);
+            recipeAlt.AddIngredient(ItemID.LeadBow, 1);
+            recipeAlt.AddTile(TileID.Anvils);
+            recipeAlt.Register();
+        }
 
         // Used to turn wooden arrows int jesters arrows
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
@@ -45,7 +51,7 @@ namespace TemplarsBows.Items
 
         // Used to ensure bow looks natural to hold
         public override Vector2? HoldoutOffset(){
-			return new Vector2(-3.5f, 0);
+			return new Vector2(0.5f, 0.5f);
 		}
 	}
 }
