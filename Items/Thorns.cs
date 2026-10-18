@@ -16,7 +16,7 @@ namespace TemplarsBows.Items
 			Item.noMelee = true;
 			Item.width = 40;
 			Item.height = 40;
-			Item.scale = .85f;
+			Item.scale = 1.0f;
 			Item.useTime = 22;
 			Item.useAnimation = 22;
 			Item.useStyle = ItemUseStyleID.Shoot;
@@ -43,7 +43,7 @@ namespace TemplarsBows.Items
 		// Used to ensure bow looks natural to hold
 		public override Vector2? HoldoutOffset()
 		{
-			return new Vector2(-3.5f, 0);
+			return new Vector2(-5.5f, 0);
 		}
 
 
